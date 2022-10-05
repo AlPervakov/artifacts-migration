@@ -1,7 +1,6 @@
 import logging
 import re
 from utils import exec_command
-from loguru import logger
 
 
 class DockerImage:

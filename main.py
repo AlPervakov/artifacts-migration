@@ -1,13 +1,11 @@
 import argparse
 import logging
-import sys
 
 from file import File
 from dockerImage import DockerImage
 from helmChart import HelmChart
 from utils import exec_command
 from exceptions import FileValidateError, ExecCommandError
-from loguru import logger
 
 
 def parse_args():
@@ -136,6 +134,5 @@ if __name__ == '__main__':
     args = parse_args()
     data = File(args.file)
     init_logging(args.log_level)
-    # logger.add(sys.stdout, format="{time} {level} {message}", filter="my_module", level="INFO")
     if main():
         exit(1)

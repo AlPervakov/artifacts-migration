@@ -1,7 +1,5 @@
 import logging
-
 from utils import exec_command
-from loguru import logger
 
 
 class HelmChart:
