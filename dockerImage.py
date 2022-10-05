@@ -22,11 +22,9 @@ class DockerImage:
     def retag(self, registry_path) -> bool:
         inspect_string = re.sub(r'/.*', '', self.__name)
         if re.search(r'[.]', inspect_string):
-            # print(f'Domain name found')
             clear_image_name = re.sub(inspect_string + '/', '', self.__name)
         else:
-            # print(f'Domain name NOT found')
-            clear_image_name = re.sub(r'.*/', '', self.__name)
+            clear_image_name = self.__name
         self.__new_image_name = f'{registry_path}/{clear_image_name}:{self.__tag}'
         command = f'docker image tag {self.__name}:{self.__tag} {self.__new_image_name}'
         stdout, stderr, result = exec_command(command)
